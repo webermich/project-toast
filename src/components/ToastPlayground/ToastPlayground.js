@@ -3,6 +3,7 @@ import React from 'react';
 import Button from '../Button';
 
 import styles from './ToastPlayground.module.css';
+import Toast from '../Toast';
 
 const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 
@@ -16,6 +17,8 @@ function ToastPlayground() {
         <img alt="Cute toast mascot" src="/toast.png" />
         <h1>Toast Playground</h1>
       </header>
+
+      <Toast />
 
       <div className={styles.controlsWrapper}>
         <div className={styles.row}>
@@ -41,10 +44,9 @@ function ToastPlayground() {
             {VARIANT_OPTIONS.map(currentVariant => {
               const key = `variant-${currentVariant}`;
               return (
-                <label htmlFor={key} id={key} key={key}>
+                <label htmlFor={key} key={key} >
                   <input
                     id={key}
-                    key={key}
                     type="radio"
                     name={key}
                     value={currentVariant}
@@ -54,8 +56,10 @@ function ToastPlayground() {
                       setVariant(event.target.value);
                     }}
                   />
+
                   {currentVariant}
                 </label>
+
               )
             })}
           </div>
