@@ -9,7 +9,7 @@ function ToastProvider({ children }) {
     const nextToasts = toasts.filter((toast) => {
       return toast.id !== id;
     });
-  
+
     setToasts(nextToasts);
   }
 
@@ -17,7 +17,11 @@ function ToastProvider({ children }) {
     setToasts([...toasts, { 'id': crypto.randomUUID(), 'message': message, 'variant': variant }]);
   }
 
-  const toastContext = { toasts, addToast, dismiss};
+  function removeAll() {
+    setToasts([]);
+  }
+
+  const toastContext = { toasts, addToast, dismiss, removeAll };
   return (
     <ToastContext.Provider value={toastContext}>
       {children}

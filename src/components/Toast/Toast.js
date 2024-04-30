@@ -20,7 +20,7 @@ const ICONS_BY_VARIANT = {
   error: AlertOctagon,
 };
 
-function Toast({ toast, dismiss}) {
+function Toast({ toast, dismiss }) {
   const [visible, setVisible] = React.useState(true);
   const Icon = ICONS_BY_VARIANT[toast.variant];
 
@@ -30,14 +30,16 @@ function Toast({ toast, dismiss}) {
         <Icon size={24} />
       </div>
       <p className={styles.content}>
+        <VisuallyHidden>{toast.variant}</VisuallyHidden>
         {toast.message}
       </p>
       <button
         className={styles.closeButton}
+        aria-label="Dismiss message"
+        aria-live="off"
         onClick={event => dismiss(toast.id)}
       >
         <X size={24} />
-        <VisuallyHidden>Dismiss message</VisuallyHidden>
       </button>
     </div>
   );
