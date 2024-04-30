@@ -40,10 +40,11 @@ function ToastPlayground() {
 
             {VARIANT_OPTIONS.map(currentVariant => {
               const key = `variant-${currentVariant}`;
-              return (<>
-                <label htmlFor={key}>
+              return (
+                <label htmlFor={key} id={key} key={key}>
                   <input
                     id={key}
+                    key={key}
                     type="radio"
                     name={key}
                     value={currentVariant}
@@ -55,7 +56,7 @@ function ToastPlayground() {
                   />
                   {currentVariant}
                 </label>
-              </>)
+              )
             })}
           </div>
         </div>
