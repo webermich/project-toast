@@ -18,6 +18,8 @@ To jog your memory, here are the terminal commands you'll need to run:
 # Install dependencies:
 npm install
 
+#test
+
 # Run a development server:
 npm run dev
 ```
